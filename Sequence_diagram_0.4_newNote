@@ -1,0 +1,20 @@
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+note over browser:
+the browser displays a list of data and a 
+form to add data to the list.
+end note
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+server-->browser: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+
+note over browser:
+The user sends the form to insert the new data to the 
+list then the server responds to the browser showing 
+again the list with the new data added.
+end note 
