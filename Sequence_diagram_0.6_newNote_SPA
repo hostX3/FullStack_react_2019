@@ -1,0 +1,9 @@
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+server-->browser: new_note_spa
+
+
+note over browser 
+The server responds with statuscode 201 created. This time the 
+server does not ask for a redirect, and the browser just add the new data 
+without reloading the page.
+end note 
