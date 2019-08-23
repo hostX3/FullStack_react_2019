@@ -1,5 +1,5 @@
-# Part-0 of the FullStack_react_2019_Course 
-part0 of the Full Stack Open 2019
+FullStack_react_2019_Course 
+Part-0
 Exercises:
 No: 0.4,
 No: 0.5,
