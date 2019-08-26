@@ -59,7 +59,7 @@ const Content = (props) => {
 }
 
 const Part = (props) => {
-  console.log(props)
+  
      return (
          <div> 
              <p>Parte{props._no}: {props.nombres} </p>
