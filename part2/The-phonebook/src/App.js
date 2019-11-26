@@ -40,7 +40,7 @@ const App = () => {
         window.confirm(
           `${
           personObject.name
-          } this person is already in the phonebook, want to update the phone?`
+          } is already in the phonebook, do you want to update the phone?`
         )
       ) {
         const previousPerson = persons.find(n => n.name === newName);
@@ -56,7 +56,7 @@ const App = () => {
             setErrorMessage("Error during update");
           });
         setPersons(persons.concat(personObject));
-        setErrorMessage(`the phone of ${personObject.name}has changed`);
+        setErrorMessage(`the phone of ${personObject.name} has changed`);
         setNewName("");
         setNewPhone("");
         
