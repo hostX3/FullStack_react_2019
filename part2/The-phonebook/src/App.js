@@ -56,7 +56,7 @@ const App = () => {
             setErrorMessage("Error during update");
           });
         setPersons(persons.concat(personObject));
-        setErrorMessage(`the number of ${personObject.name}has changed`);
+        setErrorMessage(`the phone of ${personObject.name}has changed`);
         setNewName("");
         setNewPhone("");
         
