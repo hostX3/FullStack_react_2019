@@ -5,7 +5,7 @@ const App = ({ anecdotesList }) => {
   const [anecdotes, setAnecdotes] = useState([...anecdotesList])
   const [selected, setSelected] = useState(0)
 
-  
+
   const randomAnecdoteHandler = (anecdotesNum) => {
     const randomAnecdoteNumber = Math.floor(Math.random() * anecdotesNum)
     setSelected(randomAnecdoteNumber)
@@ -44,7 +44,8 @@ const App = ({ anecdotesList }) => {
     <div>
       <p>Anecdote of the day</p>
       <p>{anecdotes[selected].anecdote}</p>
-      <p>{anecdotes[selected].voteCount}</p>
+
+   <p>This anecdote has {anecdotes[selected].voteCount} votes</p>
       <button type={'buton'} onClick={() => randomAnecdoteHandler(anecdotes.length)} > Random Anecdote </button>
       <button type={'button'} onClick={() => voteHandler(selected)} >vote</button>
 
