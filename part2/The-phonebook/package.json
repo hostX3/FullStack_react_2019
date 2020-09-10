@@ -7,7 +7,7 @@
     "axios": "^0.19.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "^3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,6 +34,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "json-server": "^0.15.1"
   },
   "author": "Carlos G.",

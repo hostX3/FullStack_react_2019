@@ -1,5 +1,9 @@
 import axios from "axios";
-const baseUrl = "http://localhost:3001/persons";
+
+const PORT = process.env.REACT_APP_PORT_DB
+console.log(PORT);
+
+const baseUrl = `http://localhost:${PORT}/persons`;
 
 
 const getAll = () => {
