@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const PORT = process.env.REACT_APP_PORT_DB
-console.log(PORT);
-
+// console.log(PORT);
 const baseUrl = `http://localhost:${PORT}/persons`;
 
 
@@ -27,8 +26,8 @@ const deletePerson = id => {
 };
 
 export default {
-    getAll: getAll,
-    create: create,
-    update: update,
-    deletePerson: deletePerson
+     getAll,
+     create,
+     update,
+     deletePerson
 };

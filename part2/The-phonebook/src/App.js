@@ -118,7 +118,7 @@ const App = () => {
   useEffect(() => {
     DB.getAll().then((response) => {
       console.log(response);
-      setPersons(response);
+      setPersons(response.reverse());
     });
   }, []);
 
@@ -134,7 +134,7 @@ const App = () => {
         onPhonechangue={handlePhoneChange}
         onNameChangue={handleNameChangue}
       />
-      <h2>persons</h2>
+      <h2>List of persons with phones</h2>
       <Persons
         persons={filtered.length === 0 ? persons : filtered}
         deletePerson={handleDeletePerson}
