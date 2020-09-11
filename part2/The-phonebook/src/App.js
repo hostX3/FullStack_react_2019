@@ -126,7 +126,7 @@ const App = () => {
           .catch(error => {
             console.log(error)
             // here you refresh the state to remove the person that is not in the backend db
-            setPersons(persons.filter(n => n.name !== name))
+            setPersons(persons.filter(n => n.id !== id))
             // in case you try to delete a person that is already deleted show the message
             setErrorMessage({
               message: `The user ${name} was deleted from the server already.`,
