@@ -112,31 +112,32 @@ const App = () => {
     setFiltered([])
     setFiltered(filter)
   }
-  const handleDeletePerson = (name, id) => {
-    return () => {
-      if (window.confirm(`Do you want to delete ${name} ?`)) {
-        DB.deletePerson(id)
-          .then(() => {
-            setPersons(persons.filter(n => n.id !== id))
-            setErrorMessage({
-              message: `Deleted ${name}`,
-              type: 'notification'
-            })
+
+  // clousure to be able to access each item scope at cration time
+  const handleDeletePerson = (name, id) => (e) => {
+    console.log(e)
+    if (window.confirm(`Do you want to delete ${name} ?`)) {
+      DB.deletePerson(id)
+        .then(() => {
+          setPersons(persons.filter(n => n.id !== id))
+          setErrorMessage({
+            message: `Deleted ${name}`,
+            type: 'notification'
           })
-          .catch(error => {
-            console.log(error)
-            // here you refresh the state to remove the person that is not in the backend db
-            setPersons(persons.filter(n => n.id !== id))
-            // in case you try to delete a person that is already deleted show the message
-            setErrorMessage({
-              message: `The user ${name} was deleted from the server already.`,
-              type: 'error'
-            })
+        })
+        .catch(error => {
+          console.log(error)
+          // here you refresh the state to remove the person that is not in the backend db
+          setPersons(persons.filter(n => n.id !== id))
+          // in case you try to delete a person that is already deleted show the message
+          setErrorMessage({
+            message: `The user ${name} was deleted from the server already.`,
+            type: 'error'
           })
-        setTimeout(() => {
-          setErrorMessage(null)
-        }, 3000)
-      }
+        })
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 3000)
     }
   }
 
