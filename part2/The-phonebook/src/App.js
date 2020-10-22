@@ -36,7 +36,6 @@ const App = () => {
       })
     }
 
-    
     if (newPhone.length < 10) {
       console.log('Alert: Phone is of invalid lenght')
       setTimeout(() => {
