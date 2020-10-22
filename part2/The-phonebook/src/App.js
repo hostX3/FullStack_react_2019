@@ -18,7 +18,7 @@ const App = () => {
   }
 
   const handlePhoneChange = e => {
-    setNewPhone(e.target.value)
+    setNewPhone(Number(e.target.value))
     console.log(newPhone)
   }
 
@@ -35,7 +35,15 @@ const App = () => {
       })
     }
 
-    if (typeof newPhone !== 'number' || newPhone.length < 10) {
+    if (typeof newPhone !== 'number') {
+      console.log('Alert: Phone is of invalid')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 3000)
+      return setErrorMessage({ message: `Phone is of invalid`, type: 'error' })
+    }
+
+    if (newPhone.length < 10) {
       console.log('Alert: Phone is of invalid lenght')
       setTimeout(() => {
         setErrorMessage(null)
