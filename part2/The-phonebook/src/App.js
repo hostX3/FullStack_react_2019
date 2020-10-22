@@ -85,7 +85,7 @@ const App = () => {
     } else {
       DB.create(personObject)
         .then(newPerson => {
-          setPersons(persons.concat(newPerson))
+          setPersons(persons.concat(newPerson).reverse())
           setErrorMessage({
             message: `Added ${personObject.name}`,
             type: 'notification'
@@ -114,8 +114,7 @@ const App = () => {
   }
 
   // clousure to be able to access each item scope at cration time
-  const handleDeletePerson = (name, id) => (e) => {
-    console.log(e)
+  const handleDeletePerson = (name, id) => () => {
     if (window.confirm(`Do you want to delete ${name} ?`)) {
       DB.deletePerson(id)
         .then(() => {

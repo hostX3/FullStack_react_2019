@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const PORT = process.env.REACT_APP_PORT_DB
+const PORT = process.env.REACT_APP_PORT_API
 // console.log(PORT);
-const baseUrl = `http://localhost:${PORT}/persons`;
+const baseUrl = `http://localhost:${PORT}/api/person`;
 
 
 const getAll = () => {
