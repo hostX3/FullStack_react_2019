@@ -40,7 +40,7 @@ const App = () => {
       setTimeout(() => {
         setErrorMessage(null)
       }, 3000)
-      return setErrorMessage({ message: `Phone too short`, type: 'error' })
+      return setErrorMessage({ message: `Phone too short or invalid`, type: 'error' })
     }
     const personObject = {
       name: newName.toLowerCase(),
