@@ -35,13 +35,6 @@ const App = () => {
       })
     }
 
-    if (typeof newPhone !== 'number') {
-      console.log('Alert: Phone is of invalid')
-      setTimeout(() => {
-        setErrorMessage(null)
-      }, 3000)
-      return setErrorMessage({ message: `Phone is of invalid`, type: 'error' })
-    }
 
     if (newPhone.length < 10) {
       console.log('Alert: Phone is of invalid lenght')
