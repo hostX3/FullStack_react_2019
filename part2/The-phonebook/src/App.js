@@ -20,7 +20,6 @@ const App = () => {
   const handlePhoneChange = e => {
     const num = e.target.value
     setNewPhone(num)
-    console.log(num)
   }
 
   const handleSummit = event => {
@@ -36,17 +35,16 @@ const App = () => {
       })
     }
 
-    if (newPhone.length < 10) {
-      console.log('Alert: Phone is of invalid lenght')
-      setTimeout(() => {
-        setErrorMessage(null)
-      }, 3000)
-      return setErrorMessage({ message: `Phone too short or invalid`, type: 'error' })
-    }
+    // if (newPhone.length < 10) {
+    //   console.log('Alert: Phone is of invalid lenght')
+    //   setTimeout(() => {
+    //     setErrorMessage(null)
+    //   }, 3000)
+    //   return setErrorMessage({ message: `Phone too short or invalid`, type: 'error' })
+    // }
     const personObject = {
       name: newName.toLowerCase(),
       phone: newPhone,
-      id: Math.floor(Math.random() * 101)
     }
 
     if (
@@ -58,6 +56,7 @@ const App = () => {
         )
       ) {
         const personToUpdateObject = persons.find(n => n.name === newName)
+        
         DB.update(personToUpdateObject.id, {
           ...personToUpdateObject,
           phone: newPhone
@@ -66,19 +65,22 @@ const App = () => {
             setPersons(
               persons.map(n => (n.name === newName ? updatedPerson : n))
             )
+            setErrorMessage({
+              message: `the phone of ${personObject.name} has changed`,
+              type: 'notification'
+            })
+            setNewName('')
+            setNewPhone('')
+
           })
           .catch(error => {
-            console.log(error)
-            setErrorMessage({ message: `Error during update`, type: 'error' })
+            console.log(error.response.data.message)
+            
+            setErrorMessage({
+              message: `${error.response.data.message}`,
+              type: 'error'
+            })
           })
-        setPersons(persons.concat(personObject))
-        setErrorMessage({
-          message: `the phone of ${personObject.name} has changed`,
-          type: 'notification'
-        })
-        setNewName('')
-        setNewPhone('')
-
         setTimeout(() => {
           setErrorMessage(null)
         }, 3000)
@@ -95,8 +97,11 @@ const App = () => {
           setNewPhone('')
         })
         .catch(error => {
-          setErrorMessage(`${error}`)
-          console.log(error)
+          setErrorMessage({
+            message: `${error.response.data.message}`,
+            type: 'error'
+          })
+         
         })
       setTimeout(() => {
         setErrorMessage(null)
