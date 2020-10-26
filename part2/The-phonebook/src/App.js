@@ -42,6 +42,7 @@ const App = () => {
     //   }, 3000)
     //   return setErrorMessage({ message: `Phone too short or invalid`, type: 'error' })
     // }
+    
     const personObject = {
       name: newName.toLowerCase(),
       phone: newPhone,
@@ -75,7 +76,6 @@ const App = () => {
           })
           .catch(error => {
             console.log(error.response.data.message)
-            
             setErrorMessage({
               message: `${error.response.data.message}`,
               type: 'error'
@@ -114,7 +114,6 @@ const App = () => {
     let filter = persons.filter(item => {
       return item.name.indexOf(keyword) > -1
     })
-
     setFiltered([])
     setFiltered(filter)
   }
